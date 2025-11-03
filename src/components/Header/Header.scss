@@ -1,0 +1,255 @@
+@import '../../styles/variables.scss';
+
+// Header structure - Aman minimalist style
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 80px;
+  background: $bg; // Solid warm background #F9F6F1
+  backdrop-filter: none;
+  z-index: 1000;
+  padding: 0 5%;
+  transition: background 0.3s ease;
+
+  @media (max-width: $breakpoint-tablet) {
+    height: 72px;
+  }
+
+  @media (max-width: $breakpoint-mobile) {
+    height: 64px;
+    padding: 0 $space-3;
+  }
+}
+
+// Left section: hamburger + search + menu label
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.hamburger {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 4px;
+  transition: opacity 0.3s ease;
+
+  &:hover {
+    opacity: 0.6;
+  }
+
+  span {
+    width: 20px;
+    height: 2px;
+    background: $text;
+    transition: all 0.3s ease;
+  }
+}
+
+.search-icon {
+  width: 18px;
+  height: 18px;
+  color: $text;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+
+  &:hover {
+    opacity: 0.6;
+  }
+
+  @media (max-width: $breakpoint-mobile) {
+    display: none;
+  }
+}
+
+.menu-label {
+  font-family: $font-ui;
+  font-size: 14px;
+  font-weight: 400;
+  color: $text;
+  letter-spacing: 0.02em;
+  transition: opacity 0.3s ease;
+  margin-left: 6px;
+
+  &:hover {
+    opacity: 0.6;
+  }
+
+  @media (max-width: $breakpoint-mobile) {
+    font-size: 13px;
+  }
+}
+
+// Center section: logo (ĀMAN with letter-spacing)
+.header-center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.logo {
+  font-family: $font-display;
+  font-size: 22px;
+  font-weight: 400;
+  letter-spacing: 0.4em;
+  color: $text;
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+
+  &:hover {
+    opacity: 0.7;
+  }
+
+  @media (max-width: $breakpoint-tablet) {
+    font-size: 20px;
+    letter-spacing: 0.35em;
+  }
+
+  @media (max-width: $breakpoint-mobile) {
+    font-size: 18px;
+    letter-spacing: 0.3em;
+  }
+}
+
+// Right section: language + reserve button
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+
+  @media (max-width: $breakpoint-mobile) {
+    gap: 16px;
+  }
+}
+
+.lang {
+  font-family: $font-ui;
+  font-size: 14px;
+  font-weight: 400;
+  color: $text;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  padding-bottom: 2px;
+  transition: all 0.3s ease;
+
+  &:hover {
+    border-bottom-color: $text;
+  }
+
+  @media (max-width: $breakpoint-mobile) {
+    display: none;
+  }
+}
+
+.btn {
+  font-family: $font-ui;
+  padding: 12px 22px;
+  border: none;
+  border-radius: 0;
+  font-weight: 400;
+  font-size: 14px;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+  display: inline-block;
+  box-shadow: none;
+
+  &:hover {
+    opacity: 0.8;
+    transform: none;
+  }
+
+  @media (max-width: $breakpoint-mobile) {
+    padding: 10px 16px;
+    font-size: 13px;
+  }
+}
+
+.btn-primary {
+  background: $dark-ui;
+  color: $accent-light;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+// Full-screen overlay navigation (Section 4, 10)
+.nav-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: $bg;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+
+  &--open {
+    opacity: 1;
+    pointer-events: all;
+  }
+}
+
+.nav-close {
+  position: absolute;
+  top: $space-4;
+  right: calc(6vw);
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: $text;
+  cursor: pointer;
+  padding: $space-2;
+  transition: transform 0.2s ease;
+
+  &:hover {
+    transform: rotate(90deg);
+  }
+
+  @media (max-width: $breakpoint-mobile) {
+    right: $space-3;
+    top: $space-3;
+  }
+}
+
+.nav-menu {
+  list-style: none;
+  text-align: center;
+
+  li {
+    margin: $space-4 0;
+
+    @media (max-width: $breakpoint-mobile) {
+      margin: $space-3 0;
+    }
+  }
+
+  a {
+    font-family: $font-display;
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-weight: 600;
+    color: $text;
+    transition: color 0.2s ease, letter-spacing 0.2s ease;
+    display: inline-block;
+
+    &:hover {
+      color: $accent;
+      letter-spacing: 0.02em;
+    }
+  }
+}

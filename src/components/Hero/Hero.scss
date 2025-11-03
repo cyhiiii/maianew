@@ -1,0 +1,80 @@
+@import '../../styles/variables.scss';
+
+// Hero section - Centered video container with warm background
+.hero {
+  width: 100vw;
+  background-color: $bg; // #F9F6F1
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem 0 3rem 0;
+  margin: 0;
+  overflow: hidden;
+
+  @media (max-width: $breakpoint-tablet) {
+    padding: 3rem 0 2rem 0;
+  }
+
+  @media (max-width: $breakpoint-mobile) {
+    padding: 2rem 0 1.5rem 0;
+  }
+}
+
+// Video container - 85vw width, centered
+.hero__figure {
+  width: 85vw;
+  height: 85vh;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border: none;
+  background-color: transparent;
+  margin: 0;
+  position: relative;
+
+  @media (max-width: $breakpoint-tablet) {
+    width: 90vw;
+    height: 75vh;
+  }
+
+  @media (max-width: $breakpoint-mobile) {
+    width: 95vw;
+    height: 65vh;
+  }
+}
+
+// Video element
+.hero__video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  opacity: 0;
+  animation: fadeInVideo 0.5s ease-in forwards;
+  
+  @keyframes fadeInVideo {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+}
+
+// Fallback image (if video not available)
+.hero__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+// Content elements removed for minimalist design
+.hero__content,
+.hero__title,
+.hero__link,
+.hero__subtitle,
+.hero__overlay {
+  display: none !important;
+  visibility: hidden;
+}

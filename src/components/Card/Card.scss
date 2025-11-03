@@ -1,0 +1,65 @@
+@import '../../styles/variables.scss';
+
+// Card component (Section 6)
+// Spacing: image-to-text gap 16px–24px (README Section 6)
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: $space-3; // 24px gap per spec upper range
+}
+
+.card__figure {
+  margin: 0;
+  overflow: hidden;
+}
+
+.card__img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+  aspect-ratio: 4 / 3;
+}
+
+.card__content {
+  display: flex;
+  flex-direction: column;
+  gap: $space-2;
+  
+  // Spacing: image-to-text gap 16px–24px (Section 6)
+  margin-top: -$space-1;
+}
+
+.card__category {
+  margin-bottom: 0;
+  // Category: color #969DAD or #59503D (Section 6)
+  // Using muted by default, can optionally use $gray-category
+}
+
+.card__title {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.3;
+  
+  @media (max-width: $breakpoint-mobile) {
+    font-size: 1.1rem;
+  }
+}
+
+.card__excerpt {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: $muted;
+  margin: 0;
+}
+
+.card__link {
+  display: inline-block;
+  margin-top: $space-1;
+  font-size: 0.9rem;
+  
+  // Link underline: 1px horizontal rule (Section 6)
+  border-bottom: 1px solid $text;
+  padding-bottom: 8px;
+}

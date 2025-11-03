@@ -1,0 +1,40 @@
+@import '../../styles/variables.scss';
+
+// Cards grid section (Section 3, 6)
+// Seasonal cards grid: 3-column grid with grid-gap: 48px (README Section 3)
+.cards-grid {
+  padding: $space-7 0; // 120px large vertical rhythm per spec
+
+  @media (max-width: $breakpoint-mobile) {
+    padding: $space-6 0; // 80px on mobile
+  }
+}
+
+.cards-grid__header {
+  text-align: center;
+  margin-bottom: $space-6;
+
+  @media (max-width: $breakpoint-mobile) {
+    margin-bottom: $space-5;
+  }
+}
+
+.cards-grid__title {
+  margin-top: $space-3;
+}
+
+.cards-grid__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); // 3 columns desktop (README Section 3)
+  gap: 48px; // Exact 48px gaps per README Section 3 spec
+
+  @media (max-width: $breakpoint-tablet) {
+    grid-template-columns: repeat(2, 1fr); // 2 columns tablet (README Section 10)
+    gap: 40px; // Reduce to 40px on tablet
+  }
+
+  @media (max-width: $breakpoint-mobile) {
+    grid-template-columns: 1fr; // Single column mobile (README Section 10)
+    gap: $space-5; // 48px vertical gap on mobile
+  }
+}

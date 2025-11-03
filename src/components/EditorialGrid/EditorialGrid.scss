@@ -1,0 +1,75 @@
+@import '../../styles/variables.scss';
+
+// Editorial grid section (Section 3, 5)
+// Two-column editorial section: grid-template-columns: 2fr 1fr with column-gap: 56–80px
+.editorial-grid {
+  padding: $space-7 0; // Large top/bottom sections use --space-7 (~120px)
+
+  @media (max-width: $breakpoint-mobile) {
+    padding: $space-6 0;
+  }
+}
+
+.editorial-grid__layout {
+  display: grid;
+  grid-template-columns: 2fr 1fr; // Image-left dominant (README Section 3, 5)
+  column-gap: 80px; // 80px desktop per README Section 3 spec (56–80px range)
+
+  @media (max-width: $breakpoint-tablet) {
+    column-gap: 56px; // Reduce to 56px on tablet per README Section 3
+  }
+
+  @media (max-width: $breakpoint-mobile) {
+    grid-template-columns: 1fr; // Single column mobile
+    gap: $space-6; // 80px vertical gap
+  }
+}
+
+.editorial-grid__item {
+  display: flex;
+  flex-direction: column;
+  gap: $space-4;
+}
+
+.editorial-grid__figure {
+  position: relative;
+  margin: 0;
+}
+
+.editorial-grid__img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+  
+  // Taller aspect for editorial images
+  aspect-ratio: 4 / 5;
+
+  @media (max-width: $breakpoint-mobile) {
+    aspect-ratio: 16 / 10;
+  }
+}
+
+.editorial-grid__caption {
+  font-family: $font-ui;
+  font-size: 0.85rem;
+  color: $muted;
+  margin-top: $space-2;
+  font-style: italic;
+}
+
+.editorial-grid__content {
+  display: flex;
+  flex-direction: column;
+  gap: $space-2;
+}
+
+.editorial-grid__title {
+  margin: $space-2 0;
+}
+
+.editorial-grid__description {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: $muted;
+}
