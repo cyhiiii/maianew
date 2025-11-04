@@ -73,7 +73,7 @@ export const seasonalExperiencesData = {
   description: "From inspiration to installation, discover our meticulous bespoke process that transforms natural stone into incomparable works of art.",
   experiences: [
     {
-      imageSrc: "https://images.unsplash.com/photo-1600607687644-c7171b42498b?w=640&h=560&fit=crop&q=80",
+      imageSrc: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=640&h=560&fit=crop&q=80",
       imageAlt: "Design consultation and concept sketching",
       category: "CONSULTATION",
       title: "Envision & Design",
@@ -81,7 +81,7 @@ export const seasonalExperiencesData = {
       link: "#consultation"
     },
     {
-      imageSrc: "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?w=640&h=560&fit=crop&q=80",
+      imageSrc: "https://images.unsplash.com/photo-1615874959474-d609969a20ed?w=640&h=560&fit=crop&q=80",
       imageAlt: "Premium stone material selection",
       category: "SELECTION",
       title: "Curate Materials",
@@ -89,7 +89,7 @@ export const seasonalExperiencesData = {
       link: "#materials"
     },
     {
-      imageSrc: "https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?w=640&h=560&fit=crop&q=80",
+      imageSrc: "https://images.unsplash.com/photo-1504148455328-c376907d081c?w=640&h=560&fit=crop&q=80",
       imageAlt: "Master artisan crafting stone furniture",
       category: "CRAFTSMANSHIP",
       title: "Artisan Creation",
@@ -103,7 +103,8 @@ export const expressionsData = {
   title: "Collections & Architectural Elements",
   cards: [
     {
-      imageSrc: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&h=1040&fit=crop&q=80",
+      videoSrc: "/videos/MAIA.mp4",
+      posterSrc: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&h=1040&fit=crop&q=80",
       imageAlt: "Premium backlit stone wall panel with natural translucent veining",
       imagePosition: "center",
       subheading: "WALL & JALI PANELS",
@@ -111,7 +112,7 @@ export const expressionsData = {
       description: "Transform spaces with our backlit stone panels that reveal nature's artistry through ethereal illumination."
     },
     {
-      imageSrc: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&h=1040&fit=crop&q=80",
+      imageSrc: "/images/NJ.jpeg",
       imageAlt: "Bespoke stone basin and countertop in premium hard stone",
       imagePosition: "center",
       subheading: "BASINS & COUNTERS",

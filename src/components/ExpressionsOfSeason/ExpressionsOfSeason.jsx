@@ -12,12 +12,34 @@ const ExpressionsOfSeason = ({ title, cards }) => {
           {cards.map((card, index) => (
             <article key={index} className="expressions-season__card">
               <div className="expressions-season__card-image">
-                <img 
-                  src={card.imageSrc} 
-                  alt={card.imageAlt}
-                  style={card.imagePosition ? { objectPosition: card.imagePosition } : {}}
-                  loading="lazy"
-                />
+                {card.videoSrc ? (
+                  <video 
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    poster={card.posterSrc}
+                    controls={false}
+                    preload="auto"
+                    style={card.imagePosition ? { objectPosition: card.imagePosition } : {}}
+                  >
+                    <source src={card.videoSrc} type="video/mp4" />
+                    {card.posterSrc && (
+                      <img 
+                        src={card.posterSrc} 
+                        alt={card.imageAlt}
+                        style={card.imagePosition ? { objectPosition: card.imagePosition } : {}}
+                      />
+                    )}
+                  </video>
+                ) : (
+                  <img 
+                    src={card.imageSrc} 
+                    alt={card.imageAlt}
+                    style={card.imagePosition ? { objectPosition: card.imagePosition } : {}}
+                    loading="lazy"
+                  />
+                )}
               </div>
               <div className="expressions-season__card-meta">
                 <p className="expressions-season__card-subheading">{card.subheading}</p>
@@ -35,7 +57,9 @@ const ExpressionsOfSeason = ({ title, cards }) => {
 ExpressionsOfSeason.propTypes = {
   title: PropTypes.string.isRequired,
   cards: PropTypes.arrayOf(PropTypes.shape({
-    imageSrc: PropTypes.string.isRequired,
+    videoSrc: PropTypes.string,
+    posterSrc: PropTypes.string,
+    imageSrc: PropTypes.string,
     imageAlt: PropTypes.string.isRequired,
     imagePosition: PropTypes.string,
     subheading: PropTypes.string.isRequired,

@@ -42,7 +42,8 @@
     overflow: hidden;
     background-color: #e5e5e5;
     
-    img {
+    img,
+    video {
       width: 100%;
       height: 100%;
       object-fit: cover;
@@ -52,7 +53,8 @@
     }
   }
   
-  &__card:hover &__card-image img {
+  &__card:hover &__card-image img,
+  &__card:hover &__card-image video {
     transform: scale(1.03);
   }
   
