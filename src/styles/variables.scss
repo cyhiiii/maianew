@@ -1,13 +1,14 @@
-// Design system variables - Aman Minimalist Style
-// Color palette - Minimalist luxury aesthetic
-$bg: #F9F6F1; // Warm minimalist background
-$text: #1E1E1E; // Primary text (near black)
-$muted: #6B6B6B; // Secondary text
+// Design system variables - MAIA Color System
+// Color palette - Refined text hierarchy
+$bg: #f8f6f4; // Warm minimalist background
+$text: #333333; // Main titles & headings (dark charcoal)
+$muted: #666666; // Body text & descriptions (medium-dark gray)
+$category: #999999; // Categories & pre-titles (lighter gray)
 $accent: #000000; // Accent dark
-$rule: rgba(30, 30, 30, 0.1);
-$dark-ui: #1E1E1E; // Button background
-$accent-light: #FFFFFF; // Button text
-$gray-category: #969DAD; // Muted cool gray for category labels
+$rule: rgba(51, 51, 51, 0.1);
+$dark-ui: #333333; // Button background
+$accent-light: #FFFFFF; // Button & overlay text (clean white)
+$gray-category: #999999; // Category labels (lighter gray)
 
 // Typography - Minimalist aesthetic
 $font-display: "Garamond", "Crimson Text", Georgia, serif; // Logo and display

@@ -1,16 +1,38 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Header.scss';
+import MenuOverlay from '../MenuOverlay/MenuOverlay';
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [isCollapsed, setIsCollapsed] = useState(false);
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
 
+  const closeMenu = () => {
+    setMenuOpen(false);
+  };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      if (scrollPosition > 60) {
+        console.log('Collapsing header at scroll position:', scrollPosition);
+        setIsCollapsed(true);
+      } else {
+        console.log('Expanding header at scroll position:', scrollPosition);
+        setIsCollapsed(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <>
-      <header className="site-header">
+      <header className={`site-header ${isCollapsed ? 'is-collapsed' : ''}`}>
         <div className="header-left">
           <button 
             className="hamburger" 
@@ -22,6 +44,7 @@ const Header = () => {
             <span></span>
             <span></span>
           </button>
+          <span className="menu-label">Menu</span>
           <svg 
             className="search-icon" 
             viewBox="0 0 24 24" 
@@ -33,16 +56,15 @@ const Header = () => {
             <circle cx="11" cy="11" r="8"></circle>
             <path d="m21 21-4.35-4.35"></path>
           </svg>
-          <span className="menu-label">Menu</span>
         </div>
         
         <div className="header-center">
-          <a href="/" className="logo">ĀMAN</a>
+          <a href="/" className="logo">MAIA</a>
         </div>
         
         <div className="header-right">
           <a href="#" className="lang">English</a>
-          <button className="btn btn-primary">Reserve</button>
+          <button className="btn btn-primary">Consult</button>
         </div>
       </header>
 
@@ -56,14 +78,17 @@ const Header = () => {
           ✕
         </button>
         <ul className="nav-menu">
-          <li><a href="#destinations">Destinations</a></li>
-          <li><a href="#experiences">Experiences</a></li>
-          <li><a href="#stories">Stories</a></li>
-          <li><a href="#wellness">Wellness</a></li>
-          <li><a href="#dining">Dining</a></li>
-          <li><a href="#reserve">Reserve</a></li>
+          <li><a href="#collections">Collections</a></li>
+          <li><a href="#process">The Process</a></li>
+          <li><a href="#materials">Materials</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#consult">Consultation</a></li>
         </ul>
       </nav>
+
+      {/* Two-column site menu overlay */}
+      <MenuOverlay isOpen={menuOpen} onClose={closeMenu} />
     </>
   );
 };

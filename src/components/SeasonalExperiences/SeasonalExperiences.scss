@@ -3,11 +3,12 @@
 .seasonal-experiences {
   width: 100%;
   background-color: $bg;
-  padding: 3.75rem 0 3.75rem calc(6vw);
+  padding: 60px 0;
   overflow: hidden;
   
   &__content {
     max-width: 100%;
+    padding-left: 0;
   }
   
   &__hero {
@@ -44,7 +45,7 @@
     display: flex;
     gap: 1.875rem;
     overflow-x: visible;
-    padding-right: calc(6vw);
+    padding-right: 0;
   }
   
   &__card {
@@ -82,7 +83,7 @@
     font-weight: 500;
     letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: #999;
+    color: $category;
     margin: 0 0 0.5rem 0;
   }
   
@@ -142,7 +143,7 @@
     transition: background-color 0.3s ease, transform 0.3s ease;
     
     &:hover {
-      background-color: #999;
+      background-color: $category;
       transform: scale(1.2);
     }
     
@@ -155,7 +156,7 @@
 // Tablet breakpoint
 @media (max-width: 1024px) {
   .seasonal-experiences {
-    padding: 3rem 0 3rem calc(4vw);
+    padding: 40px 0;
     
     &__hero {
       gap: 2rem;
@@ -175,7 +176,7 @@
     }
     
     &__carousel {
-      padding-right: calc(4vw);
+      padding-right: 0;
     }
     
     &__card {
@@ -188,7 +189,7 @@
 // Mobile breakpoint
 @media (max-width: 768px) {
   .seasonal-experiences {
-    padding: 2rem 0 2rem calc(5vw);
+    padding: 30px 0;
     
     &__hero {
       flex-direction: column;
@@ -197,7 +198,7 @@
     
     &__text-block {
       flex-basis: 100%;
-      padding-right: calc(5vw);
+      padding-right: 0;
     }
     
     &__title {
@@ -210,7 +211,7 @@
     }
     
     &__carousel {
-      padding-right: calc(5vw);
+      padding-right: 0;
       overflow-x: auto;
       scroll-snap-type: x mandatory;
       -webkit-overflow-scrolling: touch;
@@ -228,7 +229,7 @@
     
     &__pagination {
       margin-top: 2rem;
-      padding-left: calc(5vw);
+      padding-left: 0;
     }
   }
 }

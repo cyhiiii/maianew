@@ -1,36 +1,51 @@
 @import '../../styles/variables.scss';
 
-// Header structure - Aman minimalist style
+// Header structure - Collapsible from 140px to 80px
 .site-header {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 80px;
-  background: $bg; // Solid warm background #F9F6F1
-  backdrop-filter: none;
-  z-index: 1000;
-  padding: 0 5%;
-  transition: background 0.3s ease;
+  height: 140px; // initial expanded height
+  background: #f8f6f4;
+  color: $text;
+  z-index: 100;
+  padding: 0 40px; // Match main content padding
+  box-sizing: border-box;
+  transition: height 220ms cubic-bezier(0.2, 0.9, 0.2, 1),
+              box-shadow 220ms cubic-bezier(0.2, 0.9, 0.2, 1),
+              padding 220ms cubic-bezier(0.2, 0.9, 0.2, 1);
+
+  // Collapsed state
+  &.is-collapsed {
+    height: 80px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
+    // Alternative: border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  }
 
   @media (max-width: $breakpoint-tablet) {
-    height: 72px;
+    padding: 0 $space-4; // 32px
   }
 
   @media (max-width: $breakpoint-mobile) {
-    height: 64px;
-    padding: 0 $space-3;
+    padding: 0 $space-3; // 24px
+  }
+
+  // Reduced motion accessibility
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
   }
 }
 
-// Left section: hamburger + search + menu label
+// Left section: hamburger + menu label + search
 .header-left {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 10px;
 }
 
 .hamburger {
@@ -39,7 +54,7 @@
   cursor: pointer;
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 3px;
   padding: 4px;
   transition: opacity 0.3s ease;
 
@@ -49,17 +64,32 @@
 
   span {
     width: 20px;
-    height: 2px;
+    height: 1px;
     background: $text;
     transition: all 0.3s ease;
   }
 }
 
+.menu-label {
+  font-family: $font-ui;
+  font-size: 14px;
+  font-weight: 400;
+  color: $text;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-left: 5px;
+
+  @media (max-width: $breakpoint-mobile) {
+    font-size: 13px;
+  }
+}
+
 .search-icon {
-  width: 18px;
-  height: 18px;
+  width: 16px;
+  height: 16px;
   color: $text;
   cursor: pointer;
+  margin-left: 20px;
   transition: opacity 0.3s ease;
 
   &:hover {
@@ -71,52 +101,48 @@
   }
 }
 
-.menu-label {
-  font-family: $font-ui;
-  font-size: 14px;
-  font-weight: 400;
-  color: $text;
-  letter-spacing: 0.02em;
-  transition: opacity 0.3s ease;
-  margin-left: 6px;
-
-  &:hover {
-    opacity: 0.6;
-  }
-
-  @media (max-width: $breakpoint-mobile) {
-    font-size: 13px;
-  }
-}
-
-// Center section: logo (ĀMAN with letter-spacing)
+// Center section: logo with scaling animation
 .header-center {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
+  flex-grow: 1;
+  text-align: center;
 }
 
 .logo {
-  font-family: $font-display;
-  font-size: 22px;
-  font-weight: 400;
-  letter-spacing: 0.4em;
+  height: auto;
+  width: auto;
   color: $text;
   text-decoration: none;
-  transition: opacity 0.3s ease;
+  font-family: 'Libre Baskerville', Georgia, serif;
+  font-size: 48px; // initial large size
+  font-weight: 400;
+  letter-spacing: 0.35em;
+  white-space: nowrap;
+  transform-origin: center;
+  transition: transform 220ms cubic-bezier(0.2, 0.9, 0.2, 1),
+              opacity 0.3s ease;
 
   &:hover {
     opacity: 0.7;
   }
 
-  @media (max-width: $breakpoint-tablet) {
-    font-size: 20px;
-    letter-spacing: 0.35em;
+  @media (max-width: $breakpoint-mobile) {
+    font-size: 40px;
   }
 
-  @media (max-width: $breakpoint-mobile) {
-    font-size: 18px;
-    letter-spacing: 0.3em;
+  // Reduced motion accessibility
+  @media (prefers-reduced-motion: reduce) {
+    transition: opacity 0.3s ease;
+  }
+}
+
+// Logo scaling when header is collapsed
+.site-header.is-collapsed .logo {
+  transform: scale(0.4167) !important; // 48px * 0.4167 ≈ 20px
+}
+
+@media (max-width: $breakpoint-mobile) {
+  .site-header.is-collapsed .logo {
+    transform: scale(0.5) !important; // 40px * 0.5 = 20px
   }
 }
 
@@ -124,11 +150,7 @@
 .header-right {
   display: flex;
   align-items: center;
-  gap: 24px;
-
-  @media (max-width: $breakpoint-mobile) {
-    gap: 16px;
-  }
+  gap: 20px;
 }
 
 .lang {
@@ -137,12 +159,12 @@
   font-weight: 400;
   color: $text;
   text-decoration: none;
-  border-bottom: 1px solid transparent;
-  padding-bottom: 2px;
-  transition: all 0.3s ease;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
 
   &:hover {
-    border-bottom-color: $text;
+    opacity: 0.7;
   }
 
   @media (max-width: $breakpoint-mobile) {
@@ -152,31 +174,46 @@
 
 .btn {
   font-family: $font-ui;
-  padding: 12px 22px;
+  padding: 14px 28px; // initial expanded padding
   border: none;
   border-radius: 0;
   font-weight: 400;
   font-size: 14px;
-  letter-spacing: 0.02em;
+  letter-spacing: 1px;
+  text-transform: uppercase;
   cursor: pointer;
-  transition: opacity 0.3s ease;
-  display: inline-block;
-  box-shadow: none;
+  height: auto;
+  box-sizing: border-box;
+  transition: padding 220ms cubic-bezier(0.2, 0.9, 0.2, 1),
+              opacity 0.3s ease,
+              transform 220ms;
+
+  .site-header.is-collapsed & {
+    padding: 10px 20px; // collapsed padding
+  }
 
   &:hover {
     opacity: 0.8;
-    transform: none;
   }
 
   @media (max-width: $breakpoint-mobile) {
-    padding: 10px 16px;
+    padding: 12px 20px;
     font-size: 13px;
+    
+    .site-header.is-collapsed & {
+      padding: 10px 16px;
+    }
+  }
+
+  // Reduced motion accessibility
+  @media (prefers-reduced-motion: reduce) {
+    transition: opacity 0.3s ease;
   }
 }
 
 .btn-primary {
-  background: $dark-ui;
-  color: $accent-light;
+  background: $text; // #222 equivalent
+  color: $accent-light; // #fff equivalent
 
   &:hover {
     opacity: 0.8;

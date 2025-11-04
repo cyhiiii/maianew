@@ -13,23 +13,24 @@
   }
   
   &__inner {
-    width: 85vw;
-    margin: 0 auto;
+    width: 100%;
+    margin: 0;
+    padding: 0.75rem 0 0.625rem 0;
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 1.5rem;
     min-height: 72px;
-    padding: 0.75rem 0 0.625rem 0;
     box-sizing: border-box;
   }
   
   &__logo {
     font-family: 'Libre Baskerville', 'Georgia', serif;
-    font-size: 1.75rem;
-    color: #222222;
-    letter-spacing: 0.12em;
+    font-size: 1.5rem;
+    color: $text;
+    letter-spacing: 0.35em;
     white-space: nowrap;
+    font-weight: 400;
   }
   
   &__social-block {
@@ -43,7 +44,7 @@
   &__social-label {
     font-family: 'Libre Baskerville', 'Georgia', serif;
     font-size: 0.9375rem;
-    color: #222222;
+    color: $text;
     white-space: nowrap;
   }
   
@@ -60,7 +61,7 @@
     justify-content: center;
     width: 36px;
     height: 36px;
-    color: #222222;
+    color: $text;
     transition: opacity 0.3s ease, transform 0.3s ease;
     
     &:hover {
@@ -91,13 +92,13 @@
   &__copyright {
     font-family: $font-ui;
     font-size: 0.9375rem;
-    color: #222222;
+    color: $text;
     white-space: nowrap;
   }
   
   &__bottom-stripe {
     height: 12px;
-    background: #FAF8F3;
+    background: #f8f6f4;
     width: 100%;
   }
 }
@@ -106,7 +107,7 @@
 @media (min-width: 1024px) and (max-width: 1439px) {
   .footer {
     &__inner {
-      width: 90vw;
+      width: 100%;
       min-height: 64px;
     }
     
@@ -125,7 +126,7 @@
 @media (min-width: 768px) and (max-width: 1023px) {
   .footer {
     &__inner {
-      width: 92vw;
+      width: 100%;
       flex-direction: column;
       align-items: center;
       gap: 0.75rem;
@@ -153,7 +154,7 @@
 @media (max-width: 767px) {
   .footer {
     &__inner {
-      width: 94vw;
+      width: 100%;
       flex-direction: column;
       align-items: center;
       gap: 0.625rem;
