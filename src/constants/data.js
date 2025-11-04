@@ -2,7 +2,7 @@
 // MAIA Bespoke - Luxury Stone Furniture & Architectural Elements
 
 export const heroData = {
-  videoSrc: "https://player.vimeo.com/external/456454591.hd.mp4?s=86f3b9ae41f0dc0a1e7e71dd67de6d2cdcbc1896&profile_id=175",
+  videoSrc: "/videos/Untitled design.mp4",
   posterSrc: "https://images.unsplash.com/photo-1615873968403-89e068629265?w=1920&h=1080&fit=crop&q=80",
   imageSrc: "https://images.unsplash.com/photo-1615873968403-89e068629265?w=1920&h=1080&fit=crop&q=80",
   imageAlt: "Luxurious stone furniture craftsmanship and architectural elegance"
@@ -59,11 +59,11 @@ export const winterSunData = {
   title: "Illuminated Artistry",
   discoverLink: "#collections",
   largeImage: {
-    src: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1400&h=900&fit=crop&q=80",
+    src: "/images/NJP07789.jpg",
     alt: "Premium backlit stone furniture with natural veining and translucent glow"
   },
   smallImage: {
-    src: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600&h=900&fit=crop&q=80",
+    src: "/images/NJP07821.jpg",
     alt: "Detailed close-up of premium shell stone texture and craftsmanship"
   }
 };
